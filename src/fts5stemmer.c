@@ -2,6 +2,10 @@
 #include <sqlite3ext.h>
 #include <string.h>
 
+#ifdef _MSC_VER
+#define strcasecmp(a, b)   stricmp(a, b)
+#endif
+
 #define MIN_TOKEN_LEN (3)
 #define MAX_TOKEN_LEN (64)
 #define DEFAULT_LANGUAGE "english"
