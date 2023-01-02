@@ -10,7 +10,12 @@
 #define MAX_TOKEN_LEN (64)
 #define DEFAULT_LANGUAGE "english"
 
-SQLITE_EXTENSION_INIT1;
+#if !defined(BUILD_MONOLITHIC)
+SQLITE_EXTENSION_INIT1
+#else
+SQLITE_EXTENSION_INIT3
+#endif
+
 #if defined(_WIN32)
 #define _USE_MATH_DEFINES
 #endif /* _WIN32 */
